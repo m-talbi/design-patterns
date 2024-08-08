@@ -8,7 +8,7 @@ public class PostRequest extends AbstractHttpRequest {
         super("POST", url, body, headers);
     }
 
-    public PostRequest(PostRequest req) {
+    private PostRequest(PostRequest req) {
         super(req.method, req.url, req.body, req.headers);
     }
 
