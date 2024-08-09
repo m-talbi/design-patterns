@@ -5,8 +5,8 @@ import java.net.Socket;
 
 public class Main {
     public static void main(String[] args) {
-        IHttpRequestBuilder builder = new ConcreteHttpRequestBuilder();
-        IHttpRequest req = builder
+        ConcreteHttpRequestBuilder builder = new ConcreteHttpRequestBuilder();
+        HttpRequest req = (HttpRequest) builder
                 .buildMethod("GET")
                 .buildHost("www.stackoverflow.com")
                 .build();
@@ -17,9 +17,10 @@ public class Main {
         try (Socket socket = new Socket(req.getHost(), 80)) {
 
             OutputStream output = socket.getOutputStream();
-            PrintWriter writer = new PrintWriter(output, true);
+            PrintWriter writer = new PrintWriter(output);
 
-            writer.println(reqAsText);
+            writer.print(reqAsText);
+            writer.flush();
 
             InputStream input = socket.getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(input));

@@ -72,7 +72,7 @@ public class HttpRequest implements IHttpRequest {
 
     @Override
     public Map<String, String> getHeaders() {
-        return Map.of();
+        return this.headers;
     }
 
     @Override

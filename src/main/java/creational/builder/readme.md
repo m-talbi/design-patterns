@@ -1,5 +1,7 @@
 ### Builder pattern
 
+![builder schema](./images/builder.png)
+
 - A builder pattern is used to build objects. Sometimes, the objects we create can be complex, 
 made up of several sub-objects or require an elaborate construction process.
 
